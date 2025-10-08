@@ -8,7 +8,10 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest      
     
-    steps:        
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+        
       - name: créer Q1_archive_TOTO.txt          
         run : cat TOTO.txt > Q1_archive_TOTO.txt
       
