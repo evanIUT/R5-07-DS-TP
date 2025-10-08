@@ -1,0 +1,28 @@
+name: DS TP Automatisation 
+on: [push]  
+  
+permissions:   
+  contents: write  
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest      
+    
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+        
+      - name: créer Q2_archive_TOTO.txt          
+        run : |
+          echo "Evan CNAEPELNICKX" > Q2_archive_TOTO.txt
+          date >> Q2_archive_TOTO.txt
+          cat TOTO.txt >> Q2_archive_TOTO.txt
+          du TOTO.txt >> Q2_archive_TOTO.txt
+      
+      - name: commit et push du fichier         
+        run: |           
+          git config --global user.name "evanIUT"           
+          git config --global user.email "evancnaepelnickx@gmail.com"           
+          git add Q2_archive_TOTO.txt            
+          git commit -m "Création du fichier Q2_archive_TOTO.txt"           
+          git push
