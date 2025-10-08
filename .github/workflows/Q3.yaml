@@ -1,0 +1,26 @@
+name: DS TP Automatisation 
+on: [push]  
+  
+permissions:   
+  contents: write  
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest      
+    
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+        
+      - name: créer Q3_archive_java.txt          
+        run : |
+          echo "Evan CNAEPELNICKX" > Q3_archive_java.txt
+          cat Q3.java >> Q3_archive_java.txt
+      
+      - name: commit et push du fichier         
+        run: |           
+          git config --global user.name "evanIUT"           
+          git config --global user.email "evancnaepelnickx@gmail.com"           
+          git add Q3_archive_java.txt            
+          git commit -m "Création du fichier Q3_archive_java.txt"           
+          git push
