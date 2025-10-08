@@ -27,5 +27,5 @@ jobs:
           git config --global user.name "evanIUT"           
           git config --global user.email "evancnaepelnickx@gmail.com"           
           git add Q4_archive_date.txt            
-          git commit -m "Création du fichier Q4_archive_date.txt"           
+          git commit -m "Création du fichier Q4_archive_${DATE}.txt"           
           git push
