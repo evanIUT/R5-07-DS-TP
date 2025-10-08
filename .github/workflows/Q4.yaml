@@ -18,9 +18,9 @@ jobs:
         
       - name: créer Q4_archive_date.txt          
         run : |
-          echo "Evan CNAEPELNICKX" > Q4_archive_date.txt
-          cat Q4.java >> Q4_archive_date.txt
-          echo ${DATE} >> Q4_archive_date.txt
+          echo "Evan CNAEPELNICKX" > Q4_archive_${DATE}.txt
+          cat Q4.java >> Q4_archive_${DATE}.txt
+          echo ${DATE} >> Q4_archive_${DATE}.txt
       
       - name: commit et push du fichier         
         run: |           
