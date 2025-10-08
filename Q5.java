@@ -5,7 +5,7 @@ public class Q5 {
             return;
         }
         int N = Integer.parseInt(args[0]);
-        for (int i = 1; i <= N; i++) {
+        for (int i = N; i >= 1; i--) {
             for (int j = 1; j <= i; j++) {
                 System.out.print(j + (j == i ? "" : " "));
             }
