@@ -1,0 +1,36 @@
+name: DS TP Automatisation 
+on: [push]  
+  
+permissions:   
+  contents: write  
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest      
+    
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+
+      - name: Définir la date
+        id: date
+        run: echo "DATE=$(date +'%d%m%Y-%H%M%S')" >> "$GITHUB_ENV"
+        
+      - name: créer Q6_archive_date.txt          
+        run : |
+          echo "Evan CNAEPELNICKX" > Q6_archive_${DATE}.txt
+          cat Q6.java >> Q6_archive_${DATE}.txt
+          echo ${DATE} >> Q6_archive_${DATE}.txt
+          echo wc -lc Q6.java >> Q6_archive_${DATE}.txt
+
+      - name: créer Q6_differences.txt
+        run: |
+          diff <Q6_archive_date.txt> <Q6_archive_date.txt> > Q6_differences.txt
+      
+      - name: commit et push du fichier         
+        run: |           
+          git config --global user.name "evanIUT"           
+          git config --global user.email "evancnaepelnickx@gmail.com"           
+          git add Q6_archive_${DATE}.txt Q6_differences.txt           
+          git commit -m "Création du fichier Q6_archive_${DATE}.txt Q6_differences.txt"           
+          git push
