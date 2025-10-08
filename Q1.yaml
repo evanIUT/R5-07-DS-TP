@@ -1,0 +1,21 @@
+name: DS TP Automatisation
+on: [push]
+
+permissions:
+  contents: write
+
+jobs: 
+  Archive-et-rappport:
+    run-on: ubuntu-latest
+
+    steps: 
+      - name: créer Q1_archive_TOTO.txt 
+        run : toto.txt > Q1_archive_TOTO.txt 
+
+      - name: commit et push du fichier
+        run: |
+          git config --global user.name "evanIUT"
+          git config --global user.email "evancnaepelnickx@gmail.com"
+          git add Q1_archive_TOTO.txt 
+          git commit -m "Création du fichier Q1_archive_TOTO.txt"
+          git push
