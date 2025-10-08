@@ -10,7 +10,7 @@ jobs:
     
     steps:        
       - name: créer Q1_archive_TOTO.txt          
-        run : toto.txt > Q1_archive_TOTO.txt         
+        run : cat toto.txt > Q1_archive_TOTO.txt
       
       - name: commit et push du fichier         
         run: |           
